@@ -1,0 +1,13 @@
+backbone:
+  [
+    # module,     se,     t,  k,  s, out_chn, layers
+    [ConvBlock, None,  None,  3,  1,      32,     1], 
+    [MBConv,       1,     1,  3,  1,      16,     1],
+    [MBConv,       1,     6,  3,  1,      24,     2],
+    [MBConv,       1,     6,  5,  1,      40,     2],
+    [MBConv,       1,     6,  3,  1,      80,     3],
+    [MBConv,       1,     6,  5,  1,     112,     3],
+    [MBConv,       1,     6,  5,  1,     192,     4],
+    [MBConv,       1,     6,  3,  1,     320,     1],
+    [ConvBlock, None,  None,  1,  1,    1280,     1],
+  ]
