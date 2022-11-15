@@ -21,7 +21,7 @@ class ConvBlock(nn.Module):
         return x
 
 
-class MBConvN(nn.Module):
+class MBConvBlock(nn.Module):
     """ MobileNet-V2 Inverted residual block. Also referred as 'MBConv'
     at EfficientNet.
     """
@@ -61,7 +61,7 @@ class MBConvN(nn.Module):
         return x
 
 
-class FusedMBConvN(nn.Module):
+class FusedMBConvBlock(nn.Module):
 
     def __init__(
             self, in_chn, out_chn, kernel_size, stride, expansion_factor=1,

@@ -2,7 +2,7 @@ import torch.nn as nn
 import math
 import yaml
 from yaml import SafeLoader
-from red.blocks import ConvBlock, MBConvN
+from red.blocks import ConvBlock, MBConvBlock
 
 
 class EfficientNet(nn.Module):
@@ -58,14 +58,14 @@ class EfficientNet(nn.Module):
                 this_stage = nn.Sequential()
                 for j in range(l):
                     in_chn = config[i-1][5] if j == 0 else chn            
-                    this_stage.append(MBConvN(in_chn, chn, k, s, t))
+                    this_stage.append(MBConvBlock(in_chn, chn, k, s, t))
                 layers.append(this_stage)
         return layers
 
 
     def _build_head(self, n_classes):
         if n_classes == 0:
-            return nn.Identity()
+            return
         else:
             return nn.Sequential(
                 nn.Flatten(),
